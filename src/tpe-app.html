@@ -1,25 +1,16 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-item/paper-icon-item.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="tpe-icons.html">
 
 <dom-module id="tpe-app">
@@ -32,30 +23,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
 
-      app-header {
-        color: #fff;
+      /* HEADER */
+      .header {
+        color: #FFF;
         background-color: var(--app-primary-color);
       }
-      app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
-      }
 
-      .drawer-list {
-        margin: 0 20px;
-      }
+        .menu-toggle {
+          --paper-icon-button-ink-color: #FFF;
+        }
 
-      .drawer-list a {
-        display: block;
-        padding: 0 16px;
-        text-decoration: none;
-        color: var(--app-secondary-color);
-        line-height: 40px;
+      /* MENU */
+      .drawer-layout {
+        --app-drawer-layout-content-transition: margin 0.2s;
       }
+  
+        .drawer {
+          --app-drawer-content-container: {
+            background-color: #eee;
+          }
+        }
 
-      .drawer-list a.iron-selected {
-        color: black;
-        font-weight: bold;
-      }
+          .drawer-content {
+            margin-top: 98px;
+            margin-left: 10px;
+            height: calc(100% - 98px);
+            overflow: auto;
+          }
+
+            .drawer-link{
+              color: inherit;
+              text-decoration: none;
+            }
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -65,39 +64,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <app-drawer-layout fullbleed>
-      <!-- Drawer content -->
-      <app-drawer id="drawer">
-        <app-toolbar>Menu</app-toolbar>
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
-        </iron-selector>
-      </app-drawer>
 
-      <!-- Main content -->
-      <app-header-layout has-scrolling-region>
+    <app-header-layout>
 
-        <app-header condenses reveals effects="waterfall">
-          <app-toolbar>
-            <paper-icon-button icon="tpe-icons:menu" drawer-toggle></paper-icon-button>
-            <div main-title>TPE App</div>
-          </app-toolbar>
-        </app-header>
+      <app-header fixed effects="waterfall" slot="header" class="header">
+        <app-toolbar>
+          <paper-icon-button id="toggle" class="menu-toggle" icon="menu" on-tap="_drawer"></paper-icon-button>
+          <div main-title>TPE CAMPINAS</div>
+        </app-toolbar>
+      </app-header>
 
+
+      <app-drawer-layout id="drawerLayout" class="drawer-layout">
+        <!-- MENU -->
+        <app-drawer slot="drawer" class="drawer">
+          <div class="drawer-content">
+            <a class="drawer-link" name="home" href="/home">
+              <paper-icon-item>
+                <iron-icon icon="inbox" slot="item-icon"></iron-icon> <span>Home</span>
+              </paper-icon-item>
+            </a>
+            <a class="drawer-link" name="view2" href="/view2">
+              <paper-icon-item>
+                <iron-icon icon="query-builder" slot="item-icon"></iron-icon> <span>view2</span>
+              </paper-icon-item>
+            </a>
+            <a class="drawer-link" name="view3" href="/view3">
+              <paper-icon-item>
+                <iron-icon icon="done" slot="item-icon"></iron-icon> <span>view3</span>
+              </paper-icon-item>
+            </a>
+          </div>
+        </app-drawer>
+        
+        <!-- CONTENT -->
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <tpe-view1 name="view1"></tpe-view1>
+          <tpe-home name="home"></tpe-home>
           <tpe-view2 name="view2"></tpe-view2>
           <tpe-view3 name="view3"></tpe-view3>
           <tpe-view404 name="view404"></tpe-view404>
         </iron-pages>
-      </app-header-layout>
-    </app-drawer-layout>
+      </app-drawer-layout>
+    </app-header-layout>
+
+
   </template>
 
   <script>
@@ -117,11 +131,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
-
-        if (!this.$.drawer.persistent) {
-          this.$.drawer.close();
-        }
+        this.page = page || 'home';
       },
 
       _pageChanged: function(page) {
@@ -133,6 +143,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _showPage404: function() {
         this.page = 'view404';
       },
+
+      _drawer: function(){
+        var drawerLayout = this.$.drawerLayout;
+        if (drawerLayout.forceNarrow || !drawerLayout.narrow) {
+          drawerLayout.forceNarrow = !drawerLayout.forceNarrow;
+        } else {
+          drawerLayout.drawer.toggle();
+        }
+      }
     });
   </script>
 </dom-module>

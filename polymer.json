@@ -2,7 +2,7 @@
   "entrypoint": "index.html",
   "shell": "src/tpe-app.html",
   "fragments": [
-    "src/tpe-view1.html",
+    "src/tpe-home.html",
     "src/tpe-view2.html",
     "src/tpe-view3.html",
     "src/tpe-view404.html"
