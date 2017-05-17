@@ -3,7 +3,7 @@
   "shell": "src/tpe-app.html",
   "fragments": [
     "src/tpe-home.html",
-    "src/tpe-view2.html",
+    "src/tpe-login.html",
     "src/tpe-view3.html",
     "src/tpe-view404.html"
   ],

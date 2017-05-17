@@ -55,6 +55,10 @@
               color: inherit;
               text-decoration: none;
             }
+
+      /* CONTENT */
+      .content{}
+
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -84,9 +88,9 @@
                 <iron-icon icon="inbox" slot="item-icon"></iron-icon> <span>Home</span>
               </paper-icon-item>
             </a>
-            <a class="drawer-link" name="view2" href="/view2">
+            <a class="drawer-link" name="login" href="/login">
               <paper-icon-item>
-                <iron-icon icon="query-builder" slot="item-icon"></iron-icon> <span>view2</span>
+                <iron-icon icon="query-builder" slot="item-icon"></iron-icon> <span>Login</span>
               </paper-icon-item>
             </a>
             <a class="drawer-link" name="view3" href="/view3">
@@ -102,9 +106,10 @@
             selected="[[page]]"
             attr-for-selected="name"
             fallback-selection="view404"
-            role="main">
+            role="main"
+            class="content">
           <tpe-home name="home"></tpe-home>
-          <tpe-view2 name="view2"></tpe-view2>
+          <tpe-login name="login"></tpe-login>
           <tpe-view3 name="view3"></tpe-view3>
           <tpe-view404 name="view404"></tpe-view404>
         </iron-pages>
@@ -132,6 +137,10 @@
 
       _routePageChanged: function(page) {
         this.page = page || 'home';
+
+        if(page === 'login'){
+          this.$.drawerLayout.forceNarrow = true;
+        }
       },
 
       _pageChanged: function(page) {

@@ -1,0 +1,63 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="tpe-login">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: flex;
+        justify-content: center;
+
+        padding: 10px;
+      }
+
+        .card{
+          width: 500px;
+        }
+
+        @media screen and (max-width: 650px) {
+          .card{
+            width: 100%;
+          }
+        }
+
+          .title{
+            margin: 0;
+          }
+
+          .buttons{
+            margin-top: 30px;
+            text-align: right;
+          }
+
+            .orange{
+              color: #FFA500;
+            }
+
+            .blue{
+              color: #4B6CAB;
+            }
+    </style>
+
+    <div class="card">
+      <h1 class="title">Login</h1>
+      
+      <paper-input label="Email"></paper-input>
+      <paper-input label="Senha"></paper-input>
+
+      <div class="buttons">
+        <paper-button class="orange">CRIAR CONTA</paper-button>
+        <paper-button class="blue">LOGIN</paper-button>
+      </div>
+    </div>
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tpe-login',
+    });
+  </script>
+</dom-module>
