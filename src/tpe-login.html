@@ -1,6 +1,9 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="tpe-login">
@@ -44,8 +47,14 @@
     <div class="card">
       <h1 class="title">Login</h1>
       
+      <paper-dropdown-menu class="dropdown" label="Cidade">
+        <paper-listbox class="dropdown-content" selected="1">
+          <paper-item>Campinas</paper-item>
+          <paper-item>Juiz de Fora</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
       <paper-input label="Email"></paper-input>
-      <paper-input label="Senha"></paper-input>
+      <paper-input label="Senha" type="password"></paper-input>
 
       <div class="buttons">
         <paper-button class="orange">CRIAR CONTA</paper-button>
