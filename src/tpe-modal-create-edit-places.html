@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="tpe-modal-create-edit-places">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <div>
+      <paper-input label="Nome" value="{{payload.name}}"></paper-input>
+      <paper-input label="ID" value="{{payload.id}}"></paper-input>
+      <paper-input label="Local" value="{{payload.local}}"></paper-input>
+
+      <paper-button raised on-tap="toggleDisabled">desabilitar envio</paper-button>
+
+      <p>teste de rolagem dentro do modal aaaa a a a  a a a a a a  a a a a a a a a  aa  a  a a a a a a </p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p><p>teste de rolagem dentro do modal</p>
+
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tpe-modal-create-edit-places',
+      properties: {
+        payload: {
+          type: Object,
+          value: function(){
+            return {};
+          }
+        },
+        confirmDisabledProp:{
+          type: Boolean,
+          notify: true,
+          value: false
+        }
+      },
+
+      toggleDisabled: function(){
+        this.set('confirmDisabledProp', !this.confirmDisabledProp);
+      }
+    });
+  </script>
+</dom-module>

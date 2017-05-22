@@ -1,0 +1,72 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="tpe-modal-create-edit-places.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="tpe-modal">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <paper-dialog id="modal" modal>
+      <h2>[[modalTitle]]</h2>
+      <paper-dialog-scrollable>
+        <div id="dialogContent"></div>
+      </paper-dialog-scrollable>
+      <div class="buttons">
+        <paper-button class="orange" dialog-dismiss on-tap="_cancel">[[cancelLabel]]</paper-button>
+        <paper-button disabled="[[confirmDisabledProp]]" class="blue" dialog-confirm autofocus on-tap="_confirm">[[confirmLabel]]</paper-button>
+      </div>
+    </paper-dialog>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tpe-modal',
+      properties: {
+        confirmDisabledProp: {
+          type: Boolean,
+          value: false
+        }
+      },
+      
+      open: function(details){
+        var that = this;
+
+        this.confirmDisabledProp = false;
+
+        this.modalTitle = details.modalTitle;
+        this.cancelLabel = details.cancelLabel;
+        this.confirmLabel = details.confirmLabel;
+        this._cancel = function(){
+          details.onCancel(that.modalElement.payload);
+        }
+        this._confirm = function(){
+          details.onConfirm(that.modalElement.payload);
+        }
+        
+
+        this.modalElement = document.createElement(details.element);
+        this.modalElement.payload = Object.assign({}, details.payload);
+        this.modalElement.confirmDisabledProp = this.confirmDisabledProp;
+        
+        this.modalElement.addEventListener("confirm-disabled-prop-changed", function(){
+          that.confirmDisabledProp = this.confirmDisabledProp;
+        });
+
+        Polymer.dom(this.$.dialogContent).innerHTML = '';
+        Polymer.dom(this.$.dialogContent).appendChild(this.modalElement);
+
+        this.$.modal.open();
+      }
+    });
+  </script>
+</dom-module>
