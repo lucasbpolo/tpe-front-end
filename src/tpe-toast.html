@@ -1,0 +1,57 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="tpe-toast">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+      .link{
+        color: #FFF;
+      }
+
+    </style>
+
+    <paper-toast id="toast" text="{{text}}" duration="{{duration}}">
+      <template is="dom-if" if="{{linkText}}">
+        <a class="link" href="#" on-tap="_link">{{linkText}}</a>
+      </template>
+    </paper-toast>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tpe-toast',
+      properties: {
+        isLoading: {
+          type: Boolean,
+          value: false
+        }
+      },
+      
+      open: function(details){
+        var that = this;
+
+        if(this.$.toast.opened){
+          this.$.toast.close();  
+        }
+
+        this.async(function(){
+          this.text = details.text;
+          this.linkText = details.linkText;
+          this.duration = details.duration;
+          this._link = function(e){
+            details.onLinkClick(e);
+          }
+          this.$.toast.open();  
+        }, 300);
+        
+      }
+    });
+  </script>
+</dom-module>

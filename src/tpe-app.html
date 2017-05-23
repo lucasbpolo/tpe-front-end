@@ -15,6 +15,7 @@
 
 <link rel="import" href="tpe-icons.html">
 <link rel="import" href="tpe-modal.html">
+<link rel="import" href="tpe-toast.html">
 
 <dom-module id="tpe-app">
   <template>
@@ -75,7 +76,8 @@
 
 
     <app-header-layout
-      on-open-tpe-modal="_openTPEModal">
+      on-open-tpe-modal="_openTPEModal"
+      on-open-tpe-toast="_openTPEToast">
 
       <app-header fixed effects="waterfall" slot="header" class="header">
         <app-toolbar>
@@ -124,6 +126,8 @@
 
     <tpe-modal id="TPEModal"></tpe-modal>
 
+    <tpe-toast id="TPEToast"></tpe-toast>
+
   </template>
 
   <script>
@@ -171,6 +175,10 @@
 
       _openTPEModal: function(e){
         this.$.TPEModal.open(e.detail);
+      },
+
+      _openTPEToast: function(e){
+        this.$.TPEToast.open(e.detail);
       },
 
        _headerLink: function(){

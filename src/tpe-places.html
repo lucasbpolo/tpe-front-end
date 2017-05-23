@@ -175,6 +175,24 @@
           onCancel: function(data){ },
           onConfirm: function(data){
             that.unshift('places', data);
+
+            that.fire('open-tpe-toast', {
+              text: 'Salvando Ponto...',
+              duration: 0,
+              onLinkCLick: function(e){
+                console.log(e);
+              }
+            });
+
+            that.async(function(){
+              that.fire('open-tpe-toast', {
+                text: 'Ponto salvo!',
+                duration: 2000,
+                onLinkCLick: function(e){
+                  console.log(e);
+                }
+              });
+            }, 2000);
           }
         });
       }
