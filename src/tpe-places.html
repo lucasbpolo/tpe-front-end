@@ -159,6 +159,24 @@
           onCancel: function(data){ },
           onConfirm: function(data){
             that.set('places.' + index, data);
+
+            that.fire('open-tpe-toast', {
+              text: 'Salvando Modificações...',
+              duration: 0,
+              onLinkCLick: function(e){
+                console.log(e);
+              }
+            });
+
+            that.async(function(){
+              that.fire('open-tpe-toast', {
+                text: 'Modificações Salvas!',
+                duration: 2000,
+                onLinkCLick: function(e){
+                  console.log(e);
+                }
+              });
+            }, 2000);
           }
         });
       },
@@ -177,7 +195,7 @@
             that.unshift('places', data);
 
             that.fire('open-tpe-toast', {
-              text: 'Salvando Ponto...',
+              text: 'Criando Ponto...',
               duration: 0,
               onLinkCLick: function(e){
                 console.log(e);
@@ -186,7 +204,7 @@
 
             that.async(function(){
               that.fire('open-tpe-toast', {
-                text: 'Ponto salvo!',
+                text: 'Ponto Criado!',
                 duration: 2000,
                 onLinkCLick: function(e){
                   console.log(e);
