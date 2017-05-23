@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="shared-styles.html">
 
@@ -13,9 +14,23 @@
         padding: 10px;
       }
 
-      .title{
-        margin: 24px;
+      .title-holder{
+        display: flex;
+        align-items: center;
+
       }
+
+        .title{
+          display: flex;
+          flex: 1;
+          margin: 24px;
+        }
+
+        .create-button{
+          color: #FFF;
+          background-color: #4B6CAB;
+          margin: 24px;
+        }
       
       .list{
         list-style-type: none;
@@ -55,8 +70,11 @@
             .edit-icon{}
 
     </style>
-
-    <h1 class="title">Pontos</h1>
+    
+    <div class="title-holder">
+      <h1 class="title">Pontos</h1>
+      <paper-button class="create-button" raised on-tap="_openCreate">NOVO</paper-button>
+    </div>
 
     <ul class="list">
       <template is="dom-repeat" items="{{places}}">
@@ -141,6 +159,22 @@
           onCancel: function(data){ },
           onConfirm: function(data){
             that.set('places.' + index, data);
+          }
+        });
+      },
+
+      _openCreate: function(){
+        var that = this;
+        
+        this.fire('open-tpe-modal', {
+          modalTitle: 'Criação de ponto',
+          element: 'tpe-modal-create-edit-places',
+          cancelLabel: 'CANCELAR',
+          confirmLabel: 'CRIAR',
+          payload: {},
+          onCancel: function(data){ },
+          onConfirm: function(data){
+            that.unshift('places', data);
           }
         });
       }

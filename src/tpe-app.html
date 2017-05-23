@@ -145,7 +145,7 @@
       _routePageChanged: function(page) {
         this.page = page || 'home';
 
-        if(page === 'login'){
+        if(page === 'login' && !this.$.drawerLayout.narrow){
           this.$.drawerLayout.forceNarrow = true;
         }
       },

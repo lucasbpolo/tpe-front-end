@@ -4,7 +4,7 @@
   "fragments": [
     "src/tpe-home.html",
     "src/tpe-login.html",
-    "src/tpe-view3.html",
+    "src/tpe-places.html",
     "src/tpe-view404.html"
   ],
   "sourceGlobs": [
