@@ -9,9 +9,246 @@
 
         padding: 10px;
       }
+
+      .title{ }
+
+      .map-wrapper{
+        width: 100%;
+        border: 1px solid #DDD;
+        margin-bottom: 16px;
+      }
+
+        .map{
+          width: 100%;
+        }
+
+      .description-item-title{
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .description-item{
+        margin-top: 0;
+      }
+
+      .calendar-wrapper{
+        min-width: 200px;
+        max-width: 500px;
+        overflow: auto;
+        margin-bottom: 16px;
+      }
+
+        .table{
+          border: 1px solid red;
+          width: 200px;
+        }
+
+          .row{
+            border: 1px solid blue;
+            width: 200px;
+          }
+
+          .col{
+            border: 1px solid red;
+            width: 200px;
+          }
     </style>
 
-    <p>PLACES DETAIL = {{subroute}}</p>
+    <div class="card">
+      <div class="map-wrapper">
+        <img class="map" src="{{model.map}}">
+      </div>
+
+      <h1 class="title">Descrição do Ponto</h1>
+
+      <b class="description-item-title">Nome do Ponto:</b>
+      <p class="description-item">{{model.name}}</p>
+      
+      <b class="description-item-title">Id:</b>
+      <p class="description-item">{{model.id}}</p>
+      
+      <b class="description-item-title">Local:</b>
+      <p class="description-item">{{model.local}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <b class="description-item-title">Escalas:</b>
+      <div class="calendar-wrapper">
+        <table class="table">
+          <tr class="row">
+            
+
+
+
+
+            <td class="col">
+              <table class="table">
+                <tr class="row">
+                  <td class="col">Horários</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">06:00h - 08:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">08:00h - 10:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">10:00h - 12:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">12:00h - 14:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">14:00h - 16:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">16:00h - 18:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">18:00h - 20:00h</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">20:00h - 22:00h</td>
+                </tr>
+              </table>
+            </td>
+
+            <td class="col">
+              <table class="table">
+                <tr class="row">
+                  <td class="col">Segunda-feira</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">José e João</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">António e Pedro</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Sueli e Bianca</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Donizeti e Lucas</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Leonardo e Stéfani</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Daniel e Luana</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Hernani e Kátia</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Eduardo e Ana Paula</td>
+                </tr>
+              </table>
+            </td>
+
+            <td class="col">
+              <table class="table">
+                <tr class="row">
+                  <td class="col">Terça-feira</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">José e João</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">António e Pedro</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Sueli e Bianca</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Donizeti e Lucas</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Leonardo e Stéfani</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Daniel e Luana</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Hernani e Kátia</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Eduardo e Ana Paula</td>
+                </tr>
+              </table>
+            </td>
+
+            <td class="col">
+              <table class="table">
+                <tr class="row">
+                  <td class="col">Quarta-feira</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">José e João</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">António e Pedro</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Sueli e Bianca</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Donizeti e Lucas</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Leonardo e Stéfani</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Daniel e Luana</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Hernani e Kátia</td>
+                </tr>
+                <tr class="row">
+                  <td class="col">Eduardo e Ana Paula</td>
+                </tr>
+              </table>
+            </td>
+
+            
+
+
+
+          </tr>
+
+        </table>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
 
   </template>
 
@@ -27,18 +264,45 @@
         },
         subrouteLoaded:{
           type: String
+        },
+        model:{
+          type: Object,
+          value: function(){
+            return false;
+          }
         }
       },
 
       observers: [
-        '_routeChanged(subroute)'
+        '_onShowFirstLoad(subroute)'
       ],
 
-      _routeChanged: function(subroute){
+      _onShowFirstLoad: function(subroute){
         if(this.route === 'places-detail'){
           if(this.subrouteLoaded !== subroute){
             this.subrouteLoaded = subroute;
             console.log('[route-loaded]: places-detail, subroute: ', subroute);
+            
+            // TO-DO - PAGE LOADING
+
+            // AJAX
+
+              // SUCCESS
+                this.model = {
+                  name: 'Calçadão A',
+                  id: subroute,
+                  local: 'Campos Sales',
+                  map: 'https://www.google.com.br/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,1Yz6CPAWb-9g2kt0_HPPrUjn76RKlhdAKH5miwuynQefgg4jIEGMw8a3jUl1NWukHiYW7q2VS2UvuBTlP31PkP4Z1ySxaZDorgb8t9nEiwPL54-Pnww62XjieKhzknrCxs9Hhv97vTdZwCNPvRjC70rdZFTGVsB76ZzGezbarMPc1KvZyoCqhEXZDGnNumyk8yRQ3w'
+                }
+
+              // ERROR              
+                // this.fire('open-tpe-toast', {
+                //   text: 'Ocorreu algum erro! Recarregue!',
+                //   duration: 5000
+                // });
+              
+
+
           }
         }
       }
