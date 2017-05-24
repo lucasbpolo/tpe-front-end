@@ -5,6 +5,7 @@
     "src/tpe-home.html",
     "src/tpe-login.html",
     "src/tpe-places.html",
+    "src/tpe-places-detail.html",
     "src/tpe-view404.html"
   ],
   "sourceGlobs": [
@@ -20,7 +21,8 @@
     "html": {"minify": true},
     "addServiceWorker": true,
     "addPushManifest": true
-  },{
+  },
+  {
     "name": "unbundled",
     "js": {"minify": true},
     "css": {"minify": true},

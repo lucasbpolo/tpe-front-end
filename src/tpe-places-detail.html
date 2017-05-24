@@ -1,0 +1,34 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="tpe-places-detail">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    
+    <p>PLACES DETAIL = {{subroute}}</p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tpe-places-detail',
+      properties: {
+        subroute:{
+          type: Object,
+          observer: '_subrouteChanged'
+        }
+      },
+
+      _subrouteChanged: function(subroute){
+        console.log(subroute);
+      }
+
+    });
+  </script>
+</dom-module>
