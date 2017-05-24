@@ -1,7 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="tpe-places-detail">
+<dom-module id="tpe-teste">
   <template>
     <style include="shared-styles">
       :host {
@@ -10,14 +10,14 @@
         padding: 10px;
       }
     </style>
-
-    <p>PLACES DETAIL = {{subroute}}</p>
+    
+    <p>TESTE = {{subroute}}</p>
 
   </template>
 
   <script>
     Polymer({
-      is: 'tpe-places-detail',
+      is: 'tpe-teste',
       properties: {
         route:{
           type: String
@@ -32,10 +32,11 @@
       ],
 
       _routeChanged: function(subroute){
-        if(this.route === 'places-detail'){
+        if(this.route === 'teste'){
           console.log(this.route);
           console.log(subroute);
         }
+        
       }
 
     });
