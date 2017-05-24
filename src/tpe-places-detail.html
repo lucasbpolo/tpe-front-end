@@ -24,6 +24,9 @@
         },
         subroute:{
           type: String
+        },
+        subrouteLoaded:{
+          type: String
         }
       },
 
@@ -33,8 +36,10 @@
 
       _routeChanged: function(subroute){
         if(this.route === 'places-detail'){
-          console.log(this.route);
-          console.log(subroute);
+          if(this.subrouteLoaded !== subroute){
+            this.subrouteLoaded = subroute;
+            console.log('[route-loaded]: places-detail, subroute: ', subroute);
+          }
         }
       }
 
