@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="tpe-places-detail">
@@ -23,9 +24,23 @@
         }
 
       .description-item-title{
+        position: relative;
         display: block;
         margin-bottom: 4px;
       }
+
+        .edit-checkbox{
+          position: absolute;
+          right: 0;
+
+          --paper-checkbox-label: {
+            color: #757575;
+          }
+
+          --paper-checkbox-label-checked: {
+            color: #757575;
+          }
+        }
 
       .description-item{
         margin-top: 0;
@@ -91,6 +106,7 @@
               overflow: hidden;
               text-overflow: ellipsis;
               width: 80px;
+              text-align: center;
             }
 
 
@@ -115,7 +131,8 @@
       <p class="description-item">{{model.local}}</p>
 
 
-      <b class="description-item-title">Escalas:</b>
+      <b class="description-item-title">Escalas: <paper-checkbox class="edit-checkbox" id="editCheckbox">Habilitar Edição</paper-checkbox></b>
+      
       <div class="calendar-wrapper">
 
         <ul class="row">
@@ -129,109 +146,24 @@
           <li class="col header">DOMINGO</li>
         </ul>
 
-        <ul class="row">
-          <li class="col horary">06:00h - 08:00h</li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Sueli Aparecida Bragalia Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Donizeti José Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">António de Almeida</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-        </ul>
+        <template is="dom-repeat" items="{{model.schedule}}">
+          <ul class="row">
+            <li class="col horary">{{item.horary}}</li>
 
-        <ul class="row">
-          <li class="col horary">08:00h - 10:00h</li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Hernani Codogno</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Katia Codogno</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Daniel Carrion</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Luana Carrion</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Eduardo da Costa</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Anilton Silva</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">João Pedro</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Mateus António</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Pedro Miguel</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Gabriel de Jesus</a>
-          </li>
-        </ul>
+            <template is="dom-repeat" items="{{item.days}}" as="day">
+              <li class="col">
+                <template is="dom-repeat" items="{{day.partners}}" as="partner">
+                  <a class="contact" on-tap="_contactTap" href="">{{partner.name}}</a>
+                </template>
+              </li>
+            </template>
 
-        <ul class="row">
-          <li class="col horary">10:00h - 12:00h</li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Sueli Aparecida Bragalia Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Donizeti José Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">António de Almeida</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-        </ul>
+          </ul>
+        </template>
 
-        <ul class="row">
-          <li class="col horary">12:00h - 14:00h</li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Milton da Silva</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Maria de Ameida</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Andrey José</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Carmen Silva</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Maria Aparecida</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">João Pedro</a>
-          </li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Carlos António</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Jefferson de Paula</a>
-          </li>
-          <li class="col"></li>
-          <li class="col">
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
-            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
-          </li>
-        </ul>
+        
+
+        
       </div>
 
 
@@ -314,6 +246,59 @@
                               email: 'antonio@antonio.com'
                             }
                           ]
+                        },
+                        {
+                          weekday: 'Quarta-feira',
+                          partners: [
+                            {
+                              name: 'Jose',
+                              phone: '19 9871-3345',
+                              email: 'jose@jose.com'
+                            },
+                            {
+                              name: 'António',
+                              phone: '19 2345-6544',
+                              email: 'antonio@antonio.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Quinta-feira',
+                          partners: []
+                        },
+                        {
+                          weekday: 'Sexta-feira',
+                          partners: [
+                            {
+                              name: 'Jose',
+                              phone: '19 9871-3345',
+                              email: 'jose@jose.com'
+                            },
+                            {
+                              name: 'António',
+                              phone: '19 2345-6544',
+                              email: 'antonio@antonio.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Sábado',
+                          partners: []
+                        },
+                        {
+                          weekday: 'Domingo',
+                          partners: [
+                            {
+                              name: 'Jose',
+                              phone: '19 9871-3345',
+                              email: 'jose@jose.com'
+                            },
+                            {
+                              name: 'António',
+                              phone: '19 2345-6544',
+                              email: 'antonio@antonio.com'
+                            }
+                          ]
                         }
                       ]
                     },
@@ -349,6 +334,180 @@
                               email: 'antonio2@antonio2.com'
                             }
                           ]
+                        },
+                        {
+                          weekday: 'Quarta-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Quinta-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Sexta-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Sábado',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Domingo',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      horary: '10:00h - 12:00h',
+                      days: [
+                        {
+                          weekday: 'Segunda-feira',
+                          partners: [
+                            {
+                              name: 'Lucas2',
+                              phone: '19 9871-3345',
+                              email: 'lucas2@lucas2.com'
+                            },
+                            {
+                              name: 'Leonardo',
+                              phone: '19 2345-6544',
+                              email: 'leonardo2@leonardo2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Terça-feira',
+                          partners: []
+                        },
+                        {
+                          weekday: 'Quarta-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Quinta-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Sexta-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Sábado',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Domingo',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
                         }
                       ]
                     }
@@ -364,6 +523,14 @@
 
 
           }
+        }
+      },
+
+      _contactTap: function(e){
+        if(this.$.editCheckbox.checked){
+          alert('edição');
+        }else{
+          window.location.href = 'whatsapp://send?text=Olá!&phone=' + e.model.partner.phone;
         }
       }
 
