@@ -153,7 +153,7 @@
             <template is="dom-repeat" items="{{item.days}}" as="day">
               <li class="col">
                 <template is="dom-repeat" items="{{day.partners}}" as="partner">
-                  <a class="contact" on-tap="_contactTap" href="">{{partner.name}}</a>
+                  <a class="contact" on-tap="_contactTap" href="" day="{{day}}" horary="{{item}}">{{partner.name}}</a>
                 </template>
               </li>
             </template>
@@ -527,10 +527,15 @@
       },
 
       _contactTap: function(e){
+        var item = e.target;
+        var partner = e.model.partner;
+        var day = item.day;
+        var horary = item.horary;
+
         if(this.$.editCheckbox.checked){
           alert('edição');
         }else{
-          window.location.href = 'whatsapp://send?text=Olá' + e.model.partner.name + '!&phone=' + e.model.partner.phone;
+          window.location.href = 'whatsapp://send?text=Olá' + partner.name + '!&phone=' + partner.phone;
         }
       }
 
