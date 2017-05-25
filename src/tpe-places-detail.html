@@ -218,7 +218,7 @@
                       horary: '06:00h - 08:00h',
                       days: [
                         {
-                          weekday: 'Segunda-feira',
+                          day: 'Segunda-feira',
                           partners: [
                             {
                               name: 'Lucas',
@@ -233,7 +233,7 @@
                           ]
                         },
                         {
-                          weekday: 'Terça-feira',
+                          day: 'Terça-feira',
                           partners: [
                             {
                               name: 'Jose',
@@ -248,7 +248,7 @@
                           ]
                         },
                         {
-                          weekday: 'Quarta-feira',
+                          day: 'Quarta-feira',
                           partners: [
                             {
                               name: 'Jose',
@@ -263,11 +263,11 @@
                           ]
                         },
                         {
-                          weekday: 'Quinta-feira',
+                          day: 'Quinta-feira',
                           partners: []
                         },
                         {
-                          weekday: 'Sexta-feira',
+                          day: 'Sexta-feira',
                           partners: [
                             {
                               name: 'Jose',
@@ -282,11 +282,11 @@
                           ]
                         },
                         {
-                          weekday: 'Sábado',
+                          day: 'Sábado',
                           partners: []
                         },
                         {
-                          weekday: 'Domingo',
+                          day: 'Domingo',
                           partners: [
                             {
                               name: 'Jose',
@@ -306,7 +306,7 @@
                       horary: '08:00h - 10:00h',
                       days: [
                         {
-                          weekday: 'Segunda-feira',
+                          day: 'Segunda-feira',
                           partners: [
                             {
                               name: 'Lucas2',
@@ -321,7 +321,7 @@
                           ]
                         },
                         {
-                          weekday: 'Terça-feira',
+                          day: 'Terça-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -336,7 +336,7 @@
                           ]
                         },
                         {
-                          weekday: 'Quarta-feira',
+                          day: 'Quarta-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -351,7 +351,7 @@
                           ]
                         },
                         {
-                          weekday: 'Quinta-feira',
+                          day: 'Quinta-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -366,7 +366,7 @@
                           ]
                         },
                         {
-                          weekday: 'Sexta-feira',
+                          day: 'Sexta-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -381,7 +381,7 @@
                           ]
                         },
                         {
-                          weekday: 'Sábado',
+                          day: 'Sábado',
                           partners: [
                             {
                               name: 'Jose2',
@@ -396,7 +396,7 @@
                           ]
                         },
                         {
-                          weekday: 'Domingo',
+                          day: 'Domingo',
                           partners: [
                             {
                               name: 'Jose2',
@@ -416,7 +416,7 @@
                       horary: '10:00h - 12:00h',
                       days: [
                         {
-                          weekday: 'Segunda-feira',
+                          day: 'Segunda-feira',
                           partners: [
                             {
                               name: 'Lucas2',
@@ -431,11 +431,11 @@
                           ]
                         },
                         {
-                          weekday: 'Terça-feira',
+                          day: 'Terça-feira',
                           partners: []
                         },
                         {
-                          weekday: 'Quarta-feira',
+                          day: 'Quarta-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -450,7 +450,7 @@
                           ]
                         },
                         {
-                          weekday: 'Quinta-feira',
+                          day: 'Quinta-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -465,7 +465,7 @@
                           ]
                         },
                         {
-                          weekday: 'Sexta-feira',
+                          day: 'Sexta-feira',
                           partners: [
                             {
                               name: 'Jose2',
@@ -480,7 +480,7 @@
                           ]
                         },
                         {
-                          weekday: 'Sábado',
+                          day: 'Sábado',
                           partners: [
                             {
                               name: 'Jose2',
@@ -495,7 +495,7 @@
                           ]
                         },
                         {
-                          weekday: 'Domingo',
+                          day: 'Domingo',
                           partners: [
                             {
                               name: 'Jose2',
@@ -531,6 +531,9 @@
         var partner = e.model.partner;
         var day = item.day;
         var horary = item.horary;
+        var indexOfPartnerInDayPartners = day.partners.indexOf(partner);
+        var indexOfHoraryInHoraryDays = horary.days.indexOf(day);
+        var indexOfHoraryInModelSchedule = this.model.schedule.indexOf(horary);
 
         if(this.$.editCheckbox.checked){
           alert('edição');
