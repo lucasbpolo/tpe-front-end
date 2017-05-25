@@ -530,7 +530,7 @@
         if(this.$.editCheckbox.checked){
           alert('edição');
         }else{
-          window.location.href = 'whatsapp://send?text=Olá!&phone=' + e.model.partner.phone;
+          window.location.href = 'whatsapp://send?text=Olá' + e.model.partner.name + '!&phone=' + e.model.partner.phone;
         }
       }
 
