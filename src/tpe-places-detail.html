@@ -32,26 +32,70 @@
       }
 
       .calendar-wrapper{
-        min-width: 200px;
-        max-width: 500px;
-        overflow: auto;
-        margin-bottom: 16px;
+        width: 100%;
+        max-width: 1104px;
+        border: 1px dashed #f0f0f0;
+        overflow-x: auto;
       }
 
-        .table{
-          border: 1px solid red;
-          width: 200px;
+      .calendar-wrapper ul:nth-child(odd) {
+        background-color: #f5f5f5;
+      }
+
+      .calendar-wrapper ul:nth-child(odd) .contact {
+        background-color: #4a4a4a;
+      }
+
+        .row{
+          display: flex;
+          white-space: nowrap;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          font-size: 0;
+          width: 1104px;
         }
 
-          .row{
-            border: 1px solid blue;
-            width: 200px;
+          .col{
+            white-space: normal;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #DDD;
+            font-size: 12px;
+            min-height: 40px;
+            vertical-align: top;
+            padding: 9px 18px;
+            width: 100px;
           }
 
-          .col{
-            border: 1px solid red;
-            width: 200px;
+          .col.header{
+            background-color: #e8f0fd;
+            color: #76a8f1;
           }
+
+          .col.horary{
+            color: #76a8f1;
+          }
+
+            .contact{
+              display: block;
+              border-radius: 16px;
+              background-color: #1E88E6;
+              color: #FFF;
+              font-size: 12px;
+              padding: 4px 12px;
+              margin: 8px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 80px;
+            }
+
+
+
+     
     </style>
 
     <div class="card">
@@ -71,180 +115,124 @@
       <p class="description-item">{{model.local}}</p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
       <b class="description-item-title">Escalas:</b>
       <div class="calendar-wrapper">
-        <table class="table">
-          <tr class="row">
-            
 
+        <ul class="row">
+          <li class="col header">HORÁRIO</li>
+          <li class="col header">SEGUNDA-FEIRA</li>
+          <li class="col header">TERÇA-FEIRA</li>
+          <li class="col header">QUARTA-FEIRA</li>
+          <li class="col header">QUINTA-FEIRA</li>
+          <li class="col header">SEXTA-FEIRA</li>
+          <li class="col header">SÁBADO</li>
+          <li class="col header">DOMINGO</li>
+        </ul>
 
+        <ul class="row">
+          <li class="col horary">06:00h - 08:00h</li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Sueli Aparecida Bragalia Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Donizeti José Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">António de Almeida</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+        </ul>
 
+        <ul class="row">
+          <li class="col horary">08:00h - 10:00h</li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Hernani Codogno</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Katia Codogno</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Daniel Carrion</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Luana Carrion</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Eduardo da Costa</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Anilton Silva</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">João Pedro</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Mateus António</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Pedro Miguel</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Gabriel de Jesus</a>
+          </li>
+        </ul>
 
-            <td class="col">
-              <table class="table">
-                <tr class="row">
-                  <td class="col">Horários</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">06:00h - 08:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">08:00h - 10:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">10:00h - 12:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">12:00h - 14:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">14:00h - 16:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">16:00h - 18:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">18:00h - 20:00h</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">20:00h - 22:00h</td>
-                </tr>
-              </table>
-            </td>
+        <ul class="row">
+          <li class="col horary">10:00h - 12:00h</li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Sueli Aparecida Bragalia Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Donizeti José Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">António de Almeida</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+        </ul>
 
-            <td class="col">
-              <table class="table">
-                <tr class="row">
-                  <td class="col">Segunda-feira</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">José e João</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">António e Pedro</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Sueli e Bianca</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Donizeti e Lucas</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Leonardo e Stéfani</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Daniel e Luana</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Hernani e Kátia</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Eduardo e Ana Paula</td>
-                </tr>
-              </table>
-            </td>
-
-            <td class="col">
-              <table class="table">
-                <tr class="row">
-                  <td class="col">Terça-feira</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">José e João</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">António e Pedro</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Sueli e Bianca</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Donizeti e Lucas</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Leonardo e Stéfani</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Daniel e Luana</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Hernani e Kátia</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Eduardo e Ana Paula</td>
-                </tr>
-              </table>
-            </td>
-
-            <td class="col">
-              <table class="table">
-                <tr class="row">
-                  <td class="col">Quarta-feira</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">José e João</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">António e Pedro</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Sueli e Bianca</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Donizeti e Lucas</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Leonardo e Stéfani</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Daniel e Luana</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Hernani e Kátia</td>
-                </tr>
-                <tr class="row">
-                  <td class="col">Eduardo e Ana Paula</td>
-                </tr>
-              </table>
-            </td>
-
-            
-
-
-
-          </tr>
-
-        </table>
+        <ul class="row">
+          <li class="col horary">12:00h - 14:00h</li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Milton da Silva</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Maria de Ameida</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Andrey José</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Carmen Silva</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Maria Aparecida</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">João Pedro</a>
+          </li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Carlos António</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Jefferson de Paula</a>
+          </li>
+          <li class="col"></li>
+          <li class="col">
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553344">Lucas Bragalia Polo Polo Polo Polo</a>
+            <a class="contact" href="whatsapp://send?text=Olá!&phone=+5519981553353">Bianca Credendio</a>
+          </li>
+        </ul>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -292,7 +280,79 @@
                   name: 'Calçadão A',
                   id: subroute,
                   local: 'Campos Sales',
-                  map: 'https://www.google.com.br/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,1Yz6CPAWb-9g2kt0_HPPrUjn76RKlhdAKH5miwuynQefgg4jIEGMw8a3jUl1NWukHiYW7q2VS2UvuBTlP31PkP4Z1ySxaZDorgb8t9nEiwPL54-Pnww62XjieKhzknrCxs9Hhv97vTdZwCNPvRjC70rdZFTGVsB76ZzGezbarMPc1KvZyoCqhEXZDGnNumyk8yRQ3w'
+                  map: 'https://www.google.com.br/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,1Yz6CPAWb-9g2kt0_HPPrUjn76RKlhdAKH5miwuynQefgg4jIEGMw8a3jUl1NWukHiYW7q2VS2UvuBTlP31PkP4Z1ySxaZDorgb8t9nEiwPL54-Pnww62XjieKhzknrCxs9Hhv97vTdZwCNPvRjC70rdZFTGVsB76ZzGezbarMPc1KvZyoCqhEXZDGnNumyk8yRQ3w',
+                  schedule: [
+                    {
+                      horary: '06:00h - 08:00h',
+                      days: [
+                        {
+                          weekday: 'Segunda-feira',
+                          partners: [
+                            {
+                              name: 'Lucas',
+                              phone: '19 9871-3345',
+                              email: 'lucas@lucas.com'
+                            },
+                            {
+                              name: 'Leonardo',
+                              phone: '19 2345-6544',
+                              email: 'leonardo@leonardo.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Terça-feira',
+                          partners: [
+                            {
+                              name: 'Jose',
+                              phone: '19 9871-3345',
+                              email: 'jose@jose.com'
+                            },
+                            {
+                              name: 'António',
+                              phone: '19 2345-6544',
+                              email: 'antonio@antonio.com'
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      horary: '08:00h - 10:00h',
+                      days: [
+                        {
+                          weekday: 'Segunda-feira',
+                          partners: [
+                            {
+                              name: 'Lucas2',
+                              phone: '19 9871-3345',
+                              email: 'lucas2@lucas2.com'
+                            },
+                            {
+                              name: 'Leonardo',
+                              phone: '19 2345-6544',
+                              email: 'leonardo2@leonardo2.com'
+                            }
+                          ]
+                        },
+                        {
+                          weekday: 'Terça-feira',
+                          partners: [
+                            {
+                              name: 'Jose2',
+                              phone: '19 9871-3345',
+                              email: 'jose2@jose2.com'
+                            },
+                            {
+                              name: 'António2',
+                              phone: '19 2345-6544',
+                              email: 'antonio2@antonio2.com'
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
 
               // ERROR              
