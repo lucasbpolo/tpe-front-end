@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="tpe-modal-edit-schedule.html">
 
 <dom-module id="tpe-places-detail">
   <template>
@@ -527,16 +528,53 @@
       },
 
       _contactTap: function(e){
+        var that = this;
         var item = e.target;
         var partner = e.model.partner;
         var day = item.day;
         var horary = item.horary;
         var indexOfPartnerInDayPartners = day.partners.indexOf(partner);
-        var indexOfHoraryInHoraryDays = horary.days.indexOf(day);
+        var indexOfDayInHoraryDays = horary.days.indexOf(day);
         var indexOfHoraryInModelSchedule = this.model.schedule.indexOf(horary);
 
         if(this.$.editCheckbox.checked){
-          alert('edição');
+
+          this.fire('open-tpe-modal', {
+            modalTitle: 'Edição da Escala',
+            element: 'tpe-modal-edit-schedule',
+            cancelLabel: 'CANCELAR',
+            confirmLabel: 'EDITAR',
+            payload: {
+              data: day.partners
+            },
+            onCancel: function(data){ },
+            onConfirm: function(data){
+              console.log(data)
+              that.set('model.schedule.' + indexOfHoraryInModelSchedule + '.days.' + indexOfDayInHoraryDays + '.partners', data.data);
+
+              that.notifyPath('model.schedule.' + indexOfHoraryInModelSchedule + '.days.' + indexOfDayInHoraryDays + '.partners.0.name');
+              that.notifyPath('model.schedule.' + indexOfHoraryInModelSchedule + '.days.' + indexOfDayInHoraryDays + '.partners.1.name');
+
+              that.fire('open-tpe-toast', {
+                text: 'Salvando Alterações...',
+                duration: 0,
+                onLinkCLick: function(e){
+                  console.log(e);
+                }
+              });
+
+              that.async(function(){
+                that.fire('open-tpe-toast', {
+                  text: 'Alterações Salvas!',
+                  duration: 2000,
+                  onLinkCLick: function(e){
+                    console.log(e);
+                  }
+                });
+              }, 2000);
+            }
+          });
+
         }else{
           window.location.href = 'whatsapp://send?text=Olá' + partner.name + '!&phone=' + partner.phone;
         }

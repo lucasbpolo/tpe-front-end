@@ -1,0 +1,56 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="tpe-modal-edit-schedule">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        min-width: 250px;
+      }
+
+    </style>
+
+    <div>
+      <h2>Pessoa 1:</h2>
+      <paper-input label="Nome" value="{{payload.data.0.name}}"></paper-input>
+      <paper-input label="ID" value="{{payload.data.0.phone}}"></paper-input>
+      <paper-input label="Local" value="{{payload.data.0.email}}"></paper-input>
+
+      <h2>Pessoa 1:</h2>
+      <paper-input label="Nome" value="{{payload.data.1.name}}"></paper-input>
+      <paper-input label="ID" value="{{payload.data.1.phone}}"></paper-input>
+      <paper-input label="Local" value="{{payload.data.1.email}}"></paper-input>
+
+      <paper-button raised on-tap="toggleDisabled">desabilitar envio</paper-button>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tpe-modal-edit-schedule',
+      properties: {
+        payload: {
+          type: Object,
+          value: function(){
+            return {};
+          }
+        },
+        confirmDisabledProp:{
+          type: Boolean,
+          notify: true,
+          value: false
+        }
+      },
+
+      toggleDisabled: function(){
+        this.set('confirmDisabledProp', !this.confirmDisabledProp);
+      }
+    });
+  </script>
+</dom-module>
